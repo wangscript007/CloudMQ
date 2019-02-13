@@ -1,5 +1,6 @@
 package org.mengyun.cloudmq.sample.quickstart;
 
+import org.mengyun.cloudmq.client.DefaultMQProducer;
 import org.mengyun.cloudmq.client.MQProducer;
 import org.mengyun.cloudmq.common.message.Message;
 
@@ -8,13 +9,17 @@ import org.mengyun.cloudmq.common.message.Message;
  */
 public class Producer {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        MQProducer producer = null;
+        DefaultMQProducer producer = null;
+
+        producer.setNamesrvAddr("ip:port");
 
         producer.start();
 
         Message message = new Message("test", "hello".getBytes());
         producer.send(message);
+
+        Thread.sleep(1000l);
     }
 }
