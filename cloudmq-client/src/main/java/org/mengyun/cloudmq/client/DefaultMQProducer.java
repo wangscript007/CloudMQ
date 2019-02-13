@@ -14,6 +14,10 @@ public class DefaultMQProducer extends ClientConfig implements MQProducer {
         this.defaultMQProducerImpl = defaultMQProducerImpl;
     }
 
+    public DefaultMQProducer() {
+        this.defaultMQProducerImpl = new DefaultMQProducerImpl();
+    }
+
     @Override
     public void start() {
         this.defaultMQProducerImpl.start();

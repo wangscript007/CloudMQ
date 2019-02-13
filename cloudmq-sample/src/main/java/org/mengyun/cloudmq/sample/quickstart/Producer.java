@@ -11,7 +11,7 @@ public class Producer {
 
     public static void main(String[] args) throws InterruptedException {
 
-        DefaultMQProducer producer = null;
+        DefaultMQProducer producer = new DefaultMQProducer();
 
         producer.setNamesrvAddr("ip:port");
 
